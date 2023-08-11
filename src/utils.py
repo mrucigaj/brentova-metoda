@@ -9,14 +9,11 @@ def sign(num):
 def print_header():
     print(f'i \t b \t\t\t c \t\t\t f(b) \t\t f(c) \t\t diff \t\t method')
 
-
 def print_step(i, b, c, fb, fc, method):
     fb = format_num(fb)
     fc = format_num(fc)
-    diff = format_num(abs(b - c))    
-    
+    diff = format_num(abs(b - c))        
     print(f'{i} \t {"%.15f" % b} \t {"%.15f" % c} \t {fb} \t {fc} \t {diff} \t' + method)
-
 
 def format_num(num):
     if abs(num) > 1e-5:

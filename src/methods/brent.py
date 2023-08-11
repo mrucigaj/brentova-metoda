@@ -1,7 +1,6 @@
 import numpy as np
 from src.utils import print_header, print_step
 
-
 def brent(f, a, b, N=100, abstol=1e-5, reltol=1e-10, explain=True):
     fa = f(a)
     fb = f(b)
@@ -35,8 +34,7 @@ def brent(f, a, b, N=100, abstol=1e-5, reltol=1e-10, explain=True):
         m = (c - b) / 2
 
         if abs(m) < tol:
-            return b
-        
+            return b        
         
         if abs(e) < tol or abs(fa) <= abs(fb):
             d = m
@@ -45,13 +43,12 @@ def brent(f, a, b, N=100, abstol=1e-5, reltol=1e-10, explain=True):
 
         else:
             s = fb / fa
-
+            
             if a == c:
                 s = fb / fa
                 p = (a - b) * s
                 q = s - 1
                 mtd = 'interpolation (linear)'
-
             else:
                 r1 = fa / fc
                 r2 = fb / fc
@@ -67,16 +64,13 @@ def brent(f, a, b, N=100, abstol=1e-5, reltol=1e-10, explain=True):
                 else:
                     e = d
                     d = p/q
-
             else:
                 d = m
                 e = m
                 mtd = 'bisection'
 
         a = b
-        fa = fb
-
-        
+        fa = fb        
 
         if abs(d) > tol:
             b = b + d
@@ -93,13 +87,10 @@ def brent(f, a, b, N=100, abstol=1e-5, reltol=1e-10, explain=True):
         if abs(fc) < abs(fb):
             a = b
             fa = fb
-
             b = c
             fb = fc
-
             c = a
-            fc = fa
-            
+            fc = fa            
 
         if explain:
             print_step(j, b, c, fb, fc, mtd)

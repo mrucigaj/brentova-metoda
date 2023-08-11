@@ -38,19 +38,14 @@ def zero(metoda, f, prb, N, abstol, reltol, explain=True):
         b = seek_sign_change(f, a, 100, explain)
     
     if metoda == 'bisection':
-        return bisection(f, a, b, N, abstol, explain)
-    
+        return bisection(f, a, b, N, abstol, explain)    
     if metoda == 'secant':
-        return secant(f, a, b, N, abstol, explain)
-    
+        return secant(f, a, b, N, abstol, explain)    
     if metoda == 'iqi':
         return iqi(f, -0.5, 1, 1.5, N, abstol, explain)
-
     if metoda == 'dekker':
-        return dekker(f, a, b, N, abstol, explain)
-    
+        return dekker(f, a, b, N, abstol, explain)    
     if metoda == 'brent':
         return brent(f, a, b, N, abstol, reltol, explain)
 
     print("Unknown method!")
-    return

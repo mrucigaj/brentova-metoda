@@ -1,7 +1,6 @@
 import numpy as np
 from src.utils import sign, print_header, print_step
 
-
 def dekker(f, a, b, N, tol, explain):
     fa = f(a)
     fb = f(b)
